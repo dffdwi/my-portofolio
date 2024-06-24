@@ -1,5 +1,4 @@
-"use client";
-
+import Swal from "sweetalert2";
 import React from "react";
 import InputField from "./InputField";
 import useInput from "./useInput";
@@ -71,6 +70,15 @@ function Contact() {
     }
 
     if (isValid) {
+      Swal.fire({
+        title: "Sending",
+        text: "Please wait...",
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
       const formData = {
         fullName,
         subject,
@@ -93,11 +101,32 @@ function Contact() {
 
         if (response.ok) {
           const data = await response.json();
+          Swal.fire({
+            icon: "success",
+            title: "Thank you for contacting me!",
+            text: "I'll respond as soon as I can!",
+          });
           console.log("Form data submitted:", data);
+
+          setFullName("");
+          setSubject("");
+          setEmail("");
+          setPhoneNumber("");
+          setMessage("");
         } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Error sending email. Please try again later.",
+          });
           console.error("Error sending email:", response.statusText);
         }
       } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Error sending email. Please try again later.",
+        });
         console.error("Error sending email:", error);
       }
     }
