@@ -1,19 +1,92 @@
-import * as React from "react";
+"use client";
 
-const InputField = ({ label, type = "text" }) => (
-  <div className="flex flex-col grow text-xl leading-8 text-white max-md:mt-8 max-md:max-w-full">
-    <label className="max-md:max-w-full">{label}</label>
-    <input
-      type={type}
-      className="shrink-0 mt-2.5 h-16 bg-white rounded-lg border border-indigo-600 border-solid max-md:max-w-full"
-      aria-label={label}
-    />
-  </div>
-);
+import React, { useState, useEffect } from "react";
+import InputField from "./InputField";
+import useInput from "./useInput";
 
 function Contact() {
+  const [
+    fullName,
+    handleFullNameChange,
+    setFullName,
+    fullNameError,
+    setFullNameError,
+  ] = useInput();
+  const [
+    subject,
+    handleSubjectChange,
+    setSubject,
+    subjectError,
+    setSubjectError,
+  ] = useInput();
+  const [email, handleEmailChange, setEmail, emailError, setEmailError] =
+    useInput();
+  const [
+    phoneNumber,
+    handlePhoneNumberChange,
+    setPhoneNumber,
+    phoneNumberError,
+    setPhoneNumberError,
+  ] = useInput();
+  const [
+    message,
+    handleMessageChange,
+    setMessage,
+    messageError,
+    setMessageError,
+  ] = useInput();
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    if (!fullName.trim()) {
+      setFullNameError("Full name is required.");
+      isValid = false;
+    }
+
+    if (!subject.trim()) {
+      setSubjectError("Subject is required.");
+      isValid = false;
+    }
+
+    if (!email.trim() || !validateEmail(email)) {
+      setEmailError("Valid email is required.");
+      isValid = false;
+    }
+
+    if (!phoneNumber.trim() || isNaN(phoneNumber)) {
+      setPhoneNumberError("Valid phone number is required.");
+      isValid = false;
+    }
+
+    if (!message.trim()) {
+      setMessageError("Message is required.");
+      isValid = false;
+    }
+
+    if (isValid) {
+      const formData = {
+        fullName,
+        subject,
+        email,
+        phoneNumber,
+        message,
+      };
+      console.log("Form data submitted:", formData);
+    }
+  };
+
   return (
-    <main className="flex justify-center items-center px-16 py-20 bg-neutral-950 max-md:px-5">
+    <main
+      id="contact"
+      className="flex justify-center items-center px-16 py-20 bg-neutral-950 max-md:px-5"
+    >
       <div className="flex flex-col mt-16 max-w-full w-[1024px] max-md:mt-10">
         <header className="flex flex-col text-center text-white max-md:max-w-full">
           <h2 className="self-center text-xl font-semibold leading-8">
@@ -24,28 +97,53 @@ function Contact() {
               Contact me
             </h1>
             <p className="mt-8 text-2xl leading-9 max-md:max-w-full">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              For business and partnership inquiry please contact me below!.
             </p>
           </div>
         </header>
-        <form className="flex flex-col mt-16 max-md:mt-10 max-md:max-w-full">
+        <form
+          className="flex flex-col mt-16 max-md:mt-10 max-md:max-w-full"
+          onSubmit={handleSubmit}
+        >
           <div className="max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
               <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                <InputField label="Full name" />
+                <InputField
+                  label="Full name"
+                  value={fullName}
+                  onChange={handleFullNameChange}
+                  error={fullNameError}
+                />
               </div>
               <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-                <InputField label="Subject" />
+                <InputField
+                  label="Subject"
+                  value={subject}
+                  onChange={handleSubjectChange}
+                  error={subjectError}
+                />
               </div>
             </div>
           </div>
           <div className="mt-8 max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
               <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                <InputField label="Email" type="email" />
+                <InputField
+                  label="Email"
+                  type="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  error={emailError}
+                />
               </div>
               <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-                <InputField label="Phone number" type="tel" />
+                <InputField
+                  label="Phone number"
+                  type="number"
+                  value={phoneNumber}
+                  onChange={handlePhoneNumberChange}
+                  error={phoneNumberError}
+                />
               </div>
             </div>
           </div>
@@ -55,9 +153,14 @@ function Contact() {
             </label>
             <textarea
               id="message"
-              className="justify-center px-4 pt-4 pb-24 mt-2.5 bg-white rounded-lg border border-indigo-600 border-solid text-neutral-600 max-md:pb-10 max-md:max-w-full"
+              value={message}
+              onChange={handleMessageChange}
+              className="justify-center px-4 pt-4 pb-24 mt-2.5 bg-white text-black rounded-lg border border-indigo-600 border-solid text-neutral-600 max-md:pb-10 max-md:max-w-full"
               placeholder="Type your message..."
             />
+            {messageError && (
+              <p className="text-red-500 mt-2">{messageError}</p>
+            )}
           </div>
           <button
             type="submit"
