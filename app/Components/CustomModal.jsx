@@ -1,5 +1,3 @@
-// CustomModal.jsx
-
 import React from "react";
 import Modal from "react-modal";
 
@@ -11,12 +9,13 @@ const CustomModal = ({
   webLink,
   githubLink,
   imageSrc,
+  additionalLinks,
 }) => {
   return (
     <Modal
       isOpen={show}
       onRequestClose={onClose}
-      contentLabel="Project Details"
+      contentLabel="Details"
       className="bg-neutral-900 rounded-lg w-11/12 md:w-2/3 lg:w-1/2 p-8 mx-auto mt-10 text-white"
       overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
     >
@@ -31,22 +30,38 @@ const CustomModal = ({
       <h2 className="text-2xl font-semibold mb-4">{title}</h2>
       <p className="mb-4">{description}</p>
       <div className="flex flex-col gap-2">
-        <a
-          href={webLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:underline"
-        >
-          Visit Website
-        </a>
-        <a
-          href={githubLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:underline"
-        >
-          View on GitHub
-        </a>
+        {webLink && (
+          <a
+            href={webLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            Visit Website
+          </a>
+        )}
+        {githubLink && (
+          <a
+            href={githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            View on GitHub
+          </a>
+        )}
+        {additionalLinks &&
+          additionalLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              {link.label}
+            </a>
+          ))}
       </div>
       <button
         onClick={onClose}
