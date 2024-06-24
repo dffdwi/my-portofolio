@@ -78,25 +78,25 @@ export default function Project() {
       </h2>
       <div className="space-y-8">
         <ProjectCard
-          imageSrc="../../add-image.svg"
+          imageSrc="../../chat.svg"
           title="Forum Thread Apps"
           description="A platform for discussing various topics."
-          webLink="https://example.com/forum-thread-apps"
-          githubLink="https://github.com/example/forum-thread-apps"
+          webLink="https://forum-thread-apps.vercel.app"
+          githubLink="https://github.com/dffdwi/forum-thread-apps"
         />
         <ProjectCard
-          imageSrc="../../add-image.svg"
+          imageSrc="../../wirte.svg"
           title="Simple Notes Apps"
           description="An app for taking simple and quick notes."
           webLink="https://example.com/simple-notes-apps"
-          githubLink="https://github.com/example/simple-notes-apps"
+          githubLink="https://github.com/dffdwi/note-list"
         />
         <ProjectCard
-          imageSrc="../../add-image.svg"
+          imageSrc="../../Logo-VOC.png"
           title="Voice Of Courage (On Development)"
-          description="An app to share and listen to motivational stories."
-          webLink="https://example.com/voice-of-courage"
-          githubLink="https://github.com/example/voice-of-courage"
+          description="An app to share your bad experiences to the experts."
+          webLink="https://voc-two.vercel.app"
+          githubLink="https://github.com/Adittyapn/voc"
         />
       </div>
       <CustomModal
