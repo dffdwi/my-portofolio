@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import InputField from "./InputField";
 import useInput from "./useInput";
 
@@ -41,7 +41,7 @@ function Contact() {
     return re.test(String(email).toLowerCase());
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
 
@@ -78,7 +78,28 @@ function Contact() {
         phoneNumber,
         message,
       };
-      console.log("Form data submitted:", formData);
+
+      try {
+        const response = await fetch(
+          "https://porto-mail-backend.vercel.app/send",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Form data submitted:", data);
+        } else {
+          console.error("Error sending email:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error sending email:", error);
+      }
     }
   };
 
