@@ -20,12 +20,7 @@ const CustomModal = ({
       overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
     >
       <div className="flex justify-center mb-4">
-        <img
-          loading="lazy"
-          src={imageSrc}
-          alt={title}
-          className="w-24 h-24 rounded-full"
-        />
+        <img loading="lazy" src={imageSrc} alt={title} className="w-24 h-24" />
       </div>
       <h2 className="text-2xl font-semibold mb-4">{title}</h2>
       <p className="mb-4">{description}</p>

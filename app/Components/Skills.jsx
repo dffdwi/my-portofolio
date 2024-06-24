@@ -8,22 +8,26 @@ const qualities = [
   {
     name: "Workaholic",
     imageSrc: "../../workaholic.svg",
-    description: "Deskripsi untuk Workaholic.",
+    description:
+      "I'm a kind of person who can't just stand around and doing nothing. I have a tendency to do something productive.",
   },
   {
     name: "Communicative",
     imageSrc: "../../communication.svg",
-    description: "Deskripsi untuk Communicative.",
+    description:
+      "I have a broad understanding of verbal vocabulary. Therefore, I can convey a message well to the receiver.",
   },
   {
     name: "Cooperative",
     imageSrc: "../../cooperative.svg",
-    description: "Deskripsi untuk Cooperative.",
+    description:
+      "Behind the successful project, there's a great team. I can build a good cooperation and remain consistent with the goal.",
   },
   {
     name: "Perfectionist",
     imageSrc: "../../perfectionist.svg",
-    description: "Deskripsi untuk Perfectionist.",
+    description:
+      "I have a strong intuition. I have remained consistent with high quality standards to present a most worthy result.",
   },
 ];
 
@@ -87,12 +91,12 @@ export default function Skills() {
   };
 
   useEffect(() => {
-    Modal.setAppElement("#skills");
+    Modal.setAppElement("#personalities");
   }, []);
 
   return (
     <>
-      <section className="mt-32">
+      <section id="personalities" className="mt-32">
         <h2 className="mx-20 text-6xl font-semibold text-center max-md:mt-10 max-md:mx-2.5 max-md:text-4xl">
           WHY HIRE ME
         </h2>

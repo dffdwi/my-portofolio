@@ -73,7 +73,9 @@ export default function Project() {
 
   return (
     <section id="project" className="mt-16 mx-4">
-      <h2 className="text-3xl font-semibold text-center mb-8">MY PROJECT</h2>
+      <h2 className="mx-20 mt-32 mb-20 text-6xl font-semibold text-center max-md:mt-10 max-md:mx-2.5 max-md:text-4xl">
+        MY PROJECT
+      </h2>
       <div className="space-y-8">
         <ProjectCard
           imageSrc="../../add-image.svg"
