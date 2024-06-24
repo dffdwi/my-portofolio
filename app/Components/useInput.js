@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-function useInput(defaultValue = "") {
+function useInput(defaultValue = '') {
   const [value, setValue] = useState(defaultValue);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   function handleValueChange({ target }) {
     setValue(target.value);
-    setError("");
+    setError('');
   }
 
   return [value, handleValueChange, setValue, error, setError];

@@ -1,3 +1,5 @@
+"use client"
+
 import Swal from "sweetalert2";
 import React from "react";
 import InputField from "./InputField";

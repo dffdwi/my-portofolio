@@ -1,5 +1,4 @@
 import React from "react";
-import useInput from "./useInput";
 
 const InputField = ({ label, type = "text", error, value, onChange }) => {
   return (
