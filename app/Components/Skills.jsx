@@ -108,7 +108,7 @@ export default function Skills() {
                 className="group perspective w-[198px] h-[198px] max-md:w-[150px] max-md:h-[150px] mx-auto"
                 onClick={() => handleOpenModal(quality)}
               >
-                <div className="relative preserve-3d group-hover:rotate-y-180 w-full h-full duration-1000">
+                <div className="relative preserve-3d group-hover:rotate-y-180 w-full h-full duration-1000 cursor-pointer">
                   <div className="absolute backface-hidden w-full h-full flex flex-col justify-center items-center p-5 rounded-full border border-solid border-neutral-400 border-opacity-30 bg-violet-500 bg-opacity-10">
                     <img
                       loading="lazy"

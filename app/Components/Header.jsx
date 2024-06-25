@@ -70,8 +70,11 @@ const Header = () => {
         </button>
       </div>
       {isMobileMenuOpen && (
-        <nav className="flex flex-col items-start gap-3 mt-4 md:hidden">
-          <span onClick={scrollToTop} className="cursor-pointer text-white">
+        <nav className="absolute top-16 left-0 w-full bg-stone-950 flex flex-col items-start gap-3 p-4 md:hidden">
+          <span
+            onClick={scrollToTop}
+            className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
+          >
             Home
           </span>
           <Link
@@ -79,7 +82,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             onClick={toggleMobileMenu}
-            className="cursor-pointer text-white"
+            className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
           >
             About
           </Link>
@@ -88,7 +91,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             onClick={toggleMobileMenu}
-            className="cursor-pointer text-white"
+            className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
           >
             Project
           </Link>
@@ -97,7 +100,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             onClick={toggleMobileMenu}
-            className="cursor-pointer text-white"
+            className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
           >
             Expertise
           </Link>
@@ -106,7 +109,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             onClick={toggleMobileMenu}
-            className="cursor-pointer text-violet-500 rounded-md border-2 border-violet-500 border-solid p-2"
+            className="cursor-pointer text-violet-500 rounded-md border-2 border-violet-500 border-solid p-2 transition duration-200 hover:bg-violet-500 hover:text-neutral-950"
           >
             Contact Me
           </Link>
