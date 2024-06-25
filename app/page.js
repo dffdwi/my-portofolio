@@ -1,7 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-// Dynamically import your components
 const Home = dynamic(() => import("./Components/Home"));
 const About = dynamic(() => import("./Components/About"));
 const Project = dynamic(() => import("./Components/Project"));

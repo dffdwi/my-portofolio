@@ -1,35 +1,23 @@
 import * as React from "react";
 
-const SocialIcon = ({ src, alt }) => (
-  <img
-    loading="lazy"
-    src={src}
-    alt={alt}
-    className="shrink-0 w-14 aspect-[1.12]"
-  />
+const SocialIcon = ({ src, alt, link }) => (
+  <a href={link} target="_blank" rel="noopener noreferrer">
+    <img
+      loading="lazy"
+      src={src}
+      alt={alt}
+      className="shrink-0 max-w-10 aspect-[1.12]"
+    />
+  </a>
 );
 
 const SocialIcons = () => (
   <div className="flex gap-5 px-5 my-auto text-white max-md:flex-wrap">
     <p className="grow my-auto">Find Me On</p>
-    <SocialIcon
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/f7975a761a5dcc5eba2352cbad94cef3641459bcd15c4514cdb1efe55725be0e?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&"
-      alt="Social Media Icon 1"
-    />
-    <SocialIcon
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/097f04b1996454abd031b6da5c2cf8ff0cff7d0bc3e73b4e04391563f057cbca?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&"
-      alt="Social Media Icon 2"
-    />
-    <SocialIcon
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/5372d6333941ea19761443477d6abc96442a5432c53e8ab773f5a60e39bacc54?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&"
-      alt="Social Media Icon 3"
-    />
-    <img
-      loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/2f885abe8b69e74f1d8b11a260f4a95c48c08b8de6e9a217c5e158d13095c145?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&"
-      alt="Social Media Icon 4"
-      className="shrink-0 aspect-[1.1] w-[55px]"
-    />
+    <SocialIcon src="../../linkedin.svg" alt="LinkedIn" link="https://www.linkedin.com/in/daffadwihaykal" />
+    <SocialIcon src="../../github.svg" alt="GitHub" link="https://github.com/dffdwi" />
+    <SocialIcon src="../../instagram.svg" alt="Instagram" link="https://www.instagram.com/daffadwi__" />
+    <SocialIcon src="../../whatsapp.svg" alt="WhatsApp" link="https://wa.me/6281324413572" />
   </div>
 );
 
@@ -74,7 +62,11 @@ function Home() {
       </section>
 
       <section className="flex gap-5 justify-between mt-16 w-full max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
-        <button className="flex gap-2.5 px-5 py-4 text-justify text-white bg-violet-500 rounded-md">
+        <a
+          href="../../daffa-dwi-haykal-cv.pdf"
+          download="Daffa_Dwi_Haykal_CV.pdf"
+          className="flex gap-2.5 px-5 py-4 text-justify text-white bg-violet-500 rounded-md"
+        >
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/89bcb25c722426a9ed4fdf802a5ab238d2a896149ebe8f968607cedee4a93ed4?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&"
@@ -82,7 +74,7 @@ function Home() {
             className="shrink-0 my-auto w-4 aspect-square"
           />
           Download CV
-        </button>
+        </a>
         <SocialIcons />
       </section>
     </main>
