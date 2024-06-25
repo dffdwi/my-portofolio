@@ -1,45 +1,61 @@
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
 
-const OfferCard = ({ imageSrc, title, isBlurred }) => (
-  <div
-    className={`flex flex-col px-6 py-5 w-full text-2xl font-semibold text-center text-violet-500 rounded-xl border border-violet-500 bg-violet-500 bg-opacity-10 max-md:px-3 max-md:py-3 ${
-      isBlurred ? "blur-sm" : ""
-    }`}
-    style={{ zIndex: isBlurred ? 1 : 2 }}
-  >
-    <img
-      loading="lazy"
-      src={imageSrc}
-      alt={title}
-      className="w-full aspect-square object-cover rounded-md"
-    />
-    <div className="mt-4">{title}</div>
-  </div>
-);
+import basicUiUx from "../../public/animations/responsive.json";
+import frontEndDeveloper from "../../public/animations/coding.json";
+import basicBackEndDeveloper from "../../public/animations/api.json";
+
+const OfferCard = ({ animationData, title, isActive }) => {
+  const playerRef = useRef(null);
+
+  useEffect(() => {
+    if (isActive) {
+      playerRef.current.play();
+    } else {
+      playerRef.current.pause();
+    }
+  }, [isActive]);
+
+  return (
+    <div
+      className={`flex flex-col px-6 py-5 w-full text-2xl font-semibold text-center text-violet-500 rounded-xl border border-violet-500 bg-violet-500 bg-opacity-10 max-md:px-3 max-md:py-3 ${
+        !isActive ? "blur-sm" : ""
+      }`}
+      style={{ zIndex: !isActive ? 1 : 2 }}
+    >
+      <Player
+        ref={playerRef}
+        loop
+        src={animationData}
+        style={{ width: "100%", height: "auto", objectFit: "cover" }}
+        className="w-full aspect-square object-cover rounded-md"
+        autoplay={isActive}
+      />
+      <div className="mt-4">{title}</div>
+    </div>
+  );
+};
 
 function About() {
   const offers = [
     {
-      imageSrc:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/ca638082a2a02646c53cfbb121c65857125d53afd32def1f1eccc4149bcf7ce6?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&",
+      animationData: basicUiUx,
       title: "Basic UI/UX",
     },
     {
-      imageSrc:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/fd354656d3dc31c1f330471f3e33cc1a1dc869d0d00cb10239cbbc59f3ddbe8b?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&",
+      animationData: frontEndDeveloper,
       title: "Front-End Developer",
     },
     {
-      imageSrc:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/47f504c97da4755517b02cf657d40ab62f09d223a80cb7b2d1ad0b329fa6cc9f?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&",
+      animationData: basicBackEndDeveloper,
       title: "Basic Back-End Developer",
     },
   ];
 
-  const [currentPage, setCurrentPage] = useState(2); // Set the active page to Front-End Developer
+  const [currentPage, setCurrentPage] = useState(2);
 
   const totalPages = offers.length;
 
@@ -73,9 +89,9 @@ function About() {
               {offers.map((offer, index) => (
                 <OfferCard
                   key={index}
-                  imageSrc={offer.imageSrc}
+                  animationData={offer.animationData}
                   title={offer.title}
-                  isBlurred={currentPage - 1 !== index}
+                  isActive={currentPage - 1 === index}
                 />
               ))}
             </div>
