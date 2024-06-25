@@ -10,7 +10,7 @@ const Contact = dynamic(() => import("./Components/Contact"));
 const Page = () => {
   return (
     <div className="flex flex-col justify-center items-center bg-neutral-950">
-      <div className="flex flex-col pb-12 w-full max-w-[1600px] max-md:max-w-full ">
+      <div className="flex flex-col  w-full max-w-[1600px] max-md:max-w-full ">
         <main className="flex flex-col px-16 mt-16 w-full max-md:px-5 max-md:mt-10 max-md:max-w-full">
           <section id="home">
             <Home />

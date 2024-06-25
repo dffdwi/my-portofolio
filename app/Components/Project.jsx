@@ -46,15 +46,15 @@ export default function Project() {
       onClick={() =>
         handleViewDetails(title, description, webLink, githubLink, imageSrc)
       }
-      className="relative flex flex-col justify-center items-center w-72 h-80 p-4 m-4 rounded-2xl border border-solid bg-gradient-to-r from-gray-800 to-gray-900 border-white border-opacity-10 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer transform hover:-translate-y-1 hover:scale-105 transition-transform"
+      className="relative flex flex-col justify-center items-center w-72 h-80 p-10 my-4 rounded-2xl border border-solid bg-gradient-to-r from-gray-800 to-gray-900 border-white border-opacity-10 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer transform hover:-translate-y-1 hover:scale-105 transition-transform"
     >
       <img
         loading="lazy"
         src={imageSrc}
         alt={title}
-        className="w-full h-48 object-cover rounded-lg"
+        className="w-45 h-auto object-cover rounded-lg mt-5"
       />
-      <h3 className="text-xl font-semibold text-white mt-4 text-center">
+      <h3 className="text-xl font-semibold text-white my-5 text-center">
         {title}
       </h3>
       <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex justify-center items-center text-white text-lg font-semibold rounded-2xl">
@@ -72,7 +72,7 @@ export default function Project() {
       <h2 className="mx-20 mt-32 mb-20 text-6xl font-semibold text-center max-md:mt-10 max-md:mx-2.5 max-md:text-4xl">
         MY PROJECT
       </h2>
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center space-x-4">
         <ProjectCard
           imageSrc="../../chat.svg"
           title="Forum Thread Apps"

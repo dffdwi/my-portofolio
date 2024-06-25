@@ -105,11 +105,11 @@ export default function Skills() {
             {qualities.map((quality, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center"
+                className="group perspective w-[198px] h-[198px] max-md:w-[150px] max-md:h-[150px] mx-auto"
                 onClick={() => handleOpenModal(quality)}
               >
-                <div className="flex flex-col justify-center p-5 rounded-full border border-solid border-neutral-400 border-opacity-30 max-md:mt-10 cursor-pointer">
-                  <div className="flex justify-center items-center p-10 rounded-full border border-violet-500 border-solid bg-violet-500 bg-opacity-10 h-[198px] w-[198px] max-md:w-[150px] max-md:h-[150px]">
+                <div className="relative preserve-3d group-hover:rotate-y-180 w-full h-full duration-1000">
+                  <div className="absolute backface-hidden w-full h-full flex flex-col justify-center items-center p-5 rounded-full border border-solid border-neutral-400 border-opacity-30 bg-violet-500 bg-opacity-10">
                     <img
                       loading="lazy"
                       src={quality.imageSrc}
@@ -117,10 +117,12 @@ export default function Skills() {
                       className="aspect-square w-[60px] max-md:w-[50px]"
                     />
                   </div>
+                  <div className="absolute rotate-y-180 backface-hidden w-full h-full flex items-center justify-center bg-violet-500 bg-opacity-90 rounded-full">
+                    <div className="text-white text-xl font-semibold text-center px-2">
+                      {quality.name}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="mt-4 text-2xl font-medium text-center text-white">
-                  {quality.name}
-                </h3>
               </div>
             ))}
           </div>
