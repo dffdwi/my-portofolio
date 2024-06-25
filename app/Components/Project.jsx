@@ -42,27 +42,23 @@ export default function Project() {
     webLink,
     githubLink,
   }) => (
-    <div className="flex flex-col lg:flex-row gap-4 p-6 mt-8 mx-4 rounded-2xl border border-solid bg-neutral-900 border-white border-opacity-10 shadow-lg hover:shadow-xl transition-shadow duration-300 max-md:flex-wrap max-md:px-3 max-md:mt-6 max-md:mx-2 max-md:max-w-full">
-      <div className="lg:w-1/3 flex justify-center items-center max-md:w-full">
-        <img
-          loading="lazy"
-          src={imageSrc}
-          alt={title}
-          className="w-[200px] h-auto rounded-lg max-md:mt-3"
-        />
-      </div>
-      <div className="lg:w-2/3 flex flex-col justify-center items-start px-4 max-md:w-full max-md:mt-3">
-        <h3 className="text-2xl font-semibold text-white mb-3 max-md:text-center">
-          {title}
-        </h3>
-        <button
-          onClick={() =>
-            handleViewDetails(title, description, webLink, githubLink, imageSrc)
-          }
-          className="px-4 py-2 text-lg font-semibold text-white bg-violet-500 rounded-md hover:bg-violet-600 transition-colors duration-300"
-        >
-          View Details
-        </button>
+    <div
+      onClick={() =>
+        handleViewDetails(title, description, webLink, githubLink, imageSrc)
+      }
+      className="relative flex flex-col justify-center items-center w-72 h-80 p-4 m-4 rounded-2xl border border-solid bg-gradient-to-r from-gray-800 to-gray-900 border-white border-opacity-10 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer transform hover:-translate-y-1 hover:scale-105 transition-transform"
+    >
+      <img
+        loading="lazy"
+        src={imageSrc}
+        alt={title}
+        className="w-full h-48 object-cover rounded-lg"
+      />
+      <h3 className="text-xl font-semibold text-white mt-4 text-center">
+        {title}
+      </h3>
+      <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex justify-center items-center text-white text-lg font-semibold rounded-2xl">
+        View Details
       </div>
     </div>
   );
@@ -76,7 +72,7 @@ export default function Project() {
       <h2 className="mx-20 mt-32 mb-20 text-6xl font-semibold text-center max-md:mt-10 max-md:mx-2.5 max-md:text-4xl">
         MY PROJECT
       </h2>
-      <div className="space-y-8">
+      <div className="flex flex-wrap justify-center gap-2">
         <ProjectCard
           imageSrc="../../chat.svg"
           title="Forum Thread Apps"
