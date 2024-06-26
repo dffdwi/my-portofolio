@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useState, useEffect, useRef } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
+import AnimateOnView from "./AnimateOnView"; // Sesuaikan path impor ini sesuai dengan lokasi file AnimateOnView
 
 import basicUiUx from "../../public/animations/responsive.json";
 import frontEndDeveloper from "../../public/animations/coding.json";
@@ -21,10 +22,10 @@ const OfferCard = ({ animationData, title, isActive }) => {
 
   return (
     <div
-      className={`flex flex-col px-6 py-5 w-full text-2xl font-semibold text-center text-violet-500 rounded-xl border border-violet-500 bg-violet-500 bg-opacity-10 max-md:px-3 max-md:py-3 ${
-        !isActive ? "blur-sm" : ""
+      className={`flex flex-col px-6 py-5 w-full text-2xl font-semibold text-center text-violet-500 rounded-xl border border-violet-500 bg-violet-500 bg-opacity-10 max-md:px-3 max-md:py-3 transition-all duration-500 ${
+        isActive ? "opacity-100 scale-100" : "opacity-50 scale-95 blur-sm"
       }`}
-      style={{ zIndex: !isActive ? 1 : 2 }}
+      style={{ zIndex: isActive ? 2 : 1 }}
     >
       <Player
         ref={playerRef}
@@ -70,29 +71,36 @@ function About() {
   return (
     <div className="mt-20">
       <main className="flex flex-col items-center px-5">
-        <header className="text-xl font-semibold text-center text-neutral-500">
-          What Do I Offer
-        </header>
-        <h1 className="mt-8 text-4xl font-semibold text-center text-white max-md:mt-6 max-md:text-2xl">
-          Creates Professional Product That's <br /> Oriented Towards Client
-          Needs
-        </h1>
+        <AnimateOnView direction="up" delay={0.1}>
+          <header className="text-xl font-semibold text-center text-neutral-500">
+            What Do I Offer
+          </header>
+        </AnimateOnView>
+        <AnimateOnView direction="up" delay={0.3}>
+          <h1 className="mt-8 text-4xl font-semibold text-center text-white max-md:mt-6 max-md:text-2xl">
+            Creates Professional Product That's <br /> Oriented Towards Client
+            Needs
+          </h1>
+        </AnimateOnView>
         <section className="flex flex-col items-center self-stretch mt-16 w-full max-md:mt-8">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/2afee437a7d53b125fa78a05f1d3a889ed4e152d6fde7eaee833fc54916e57a1?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&"
-            alt="Professional product illustration"
-            className="w-full max-w-md border-violet-500 border-10 rounded-md"
-          />
+          <AnimateOnView direction="up" delay={0.5}>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/2afee437a7d53b125fa78a05f1d3a889ed4e152d6fde7eaee833fc54916e57a1?apiKey=8f8528e23e2f43b68a1c2de0d919d80c&"
+              alt="Professional product illustration"
+              className="w-full max-w-md border-violet-500 border-10 rounded-md"
+            />
+          </AnimateOnView>
           <div className="mt-12 w-full max-w-4xl">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {offers.map((offer, index) => (
-                <OfferCard
-                  key={index}
-                  animationData={offer.animationData}
-                  title={offer.title}
-                  isActive={currentPage - 1 === index}
-                />
+                <AnimateOnView key={index} direction="up" delay={0.1 * (index + 1)}>
+                  <OfferCard
+                    animationData={offer.animationData}
+                    title={offer.title}
+                    isActive={currentPage - 1 === index}
+                  />
+                </AnimateOnView>
               ))}
             </div>
           </div>
@@ -104,6 +112,7 @@ function About() {
               aria-label="Previous page"
               onClick={handlePreviousPage}
               disabled={currentPage === 1}
+              className="transition-all duration-300"
             >
               <img
                 loading="lazy"
@@ -115,8 +124,8 @@ function About() {
             {Array.from({ length: totalPages }, (_, i) => (
               <div
                 key={i}
-                className={`h-2.5 rounded-full w-16 ${
-                  i + 1 === currentPage ? "bg-violet-500" : "bg-neutral-400"
+                className={`h-2.5 rounded-full w-16 transition-all duration-500 ${
+                  i + 1 === currentPage ? "bg-violet-500 scale-110" : "bg-neutral-400 scale-100"
                 }`}
               ></div>
             ))}
@@ -124,6 +133,7 @@ function About() {
               aria-label="Next page"
               onClick={handleNextPage}
               disabled={currentPage === totalPages}
+              className="transition-all duration-300"
             >
               <img
                 loading="lazy"

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import CustomModal from "./CustomModal";
 import Modal from "react-modal";
+import AnimateOnView from "./AnimateOnView"; // Sesuaikan path impor ini sesuai dengan lokasi file AnimateOnView
 
 const qualities = [
   {
@@ -97,79 +98,90 @@ export default function Skills() {
   return (
     <>
       <section id="personalities" className="mt-32">
-        <h2 className="mx-20 text-6xl font-semibold text-center max-md:mt-10 max-md:mx-2.5 max-md:text-4xl">
-          WHY HIRE ME
-        </h2>
+        <AnimateOnView direction="up" delay={0.2}>
+          <h2 className="mx-20 text-6xl font-semibold text-center max-md:mt-10 max-md:mx-2.5 max-md:text-4xl">
+            WHY HIRE ME
+          </h2>
+        </AnimateOnView>
         <div className="mt-20 mx-8 max-md:mt-10 max-md:mx-2.5">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {qualities.map((quality, index) => (
-              <div
-                key={index}
-                className="group perspective w-[198px] h-[198px] max-md:w-[150px] max-md:h-[150px] mx-auto"
-                onClick={() => handleOpenModal(quality)}
-              >
-                <div className="relative preserve-3d group-hover:rotate-y-180 w-full h-full duration-1000 cursor-pointer">
-                  <div className="absolute backface-hidden w-full h-full flex flex-col justify-center items-center p-5 rounded-full border border-solid border-neutral-400 border-opacity-30 bg-violet-500 bg-opacity-10">
-                    <img
-                      loading="lazy"
-                      src={quality.imageSrc}
-                      alt={`${quality.name} Icon`}
-                      className="aspect-square w-[60px] max-md:w-[50px]"
-                    />
-                  </div>
-                  <div className="absolute rotate-y-180 backface-hidden w-full h-full flex items-center justify-center bg-violet-500 bg-opacity-90 rounded-full">
-                    <div className="text-white text-xl font-semibold text-center px-2">
-                      {quality.name}
+              <AnimateOnView key={index} direction="up" delay={0.2 * (index + 1)}>
+                <div
+                  className="group perspective w-[198px] h-[198px] max-md:w-[150px] max-md:h-[150px] mx-auto"
+                  onClick={() => handleOpenModal(quality)}
+                >
+                  <div className="relative preserve-3d group-hover:rotate-y-180 w-full h-full duration-1000 cursor-pointer">
+                    <div className="absolute backface-hidden w-full h-full flex flex-col justify-center items-center p-5 rounded-full border border-solid border-neutral-400 border-opacity-30 bg-violet-500 bg-opacity-10">
+                      <img
+                        loading="lazy"
+                        src={quality.imageSrc}
+                        alt={`${quality.name} Icon`}
+                        className="aspect-square w-[60px] max-md:w-[50px]"
+                      />
+                    </div>
+                    <div className="absolute rotate-y-180 backface-hidden w-full h-full flex items-center justify-center bg-violet-500 bg-opacity-90 rounded-full">
+                      <div className="text-white text-xl font-semibold text-center px-2">
+                        {quality.name}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </AnimateOnView>
             ))}
           </div>
         </div>
       </section>
 
       <section id="skills" className="mt-32">
-        <h2 className="mx-20 text-6xl font-semibold text-center max-md:mt-10 max-md:mx-2.5 max-md:text-4xl">
-          TOOLS AND SKILLS
-        </h2>
+        <AnimateOnView direction="up" delay={0.2}>
+          <h2 className="mx-20 text-6xl font-semibold text-center max-md:mt-10 max-md:mx-2.5 max-md:text-4xl">
+            TOOLS AND SKILLS
+          </h2>
+        </AnimateOnView>
         <div className="flex overflow-hidden space-x-16 mt-16 mx-6 max-md:mt-10 max-md:mx-2.5">
-          <div className="flex space-x-16 animate-loop-scroll">
-            {skills.map((skill, index) => (
-              <img
-                key={index}
-                loading="lazy"
-                src={skill.imageSrc}
-                alt={skill.alt}
-                className="max-w-none w-[182px] max-md:w-[150px] h-[182px] max-md:h-[150px] object-cover"
-              />
-            ))}
-          </div>
-          <div className="flex space-x-16 animate-loop-scroll">
-            {skills.map((skill, index) => (
-              <img
-                key={index}
-                loading="lazy"
-                src={skill.imageSrc}
-                alt={skill.alt}
-                className="max-w-none w-[182px] max-md:w-[150px] h-[182px] max-md:h-[150px] object-cover"
-              />
-            ))}
-          </div>
-          <div
-            className="flex space-x-16 animate-loop-scroll"
-            aria-hidden="true"
-          >
-            {skills.map((skill, index) => (
-              <img
-                key={index}
-                loading="lazy"
-                src={skill.imageSrc}
-                alt={skill.alt}
-                className="max-w-none w-[182px] max-md:w-[150px] h-[182px] max-md:h-[150px] object-cover"
-              />
-            ))}
-          </div>
+          <AnimateOnView direction="left" delay={0.4}>
+            <div className="flex space-x-16 animate-loop-scroll">
+              {skills.map((skill, index) => (
+                <img
+                  key={index}
+                  loading="lazy"
+                  src={skill.imageSrc}
+                  alt={skill.alt}
+                  className="max-w-none w-[182px] max-md:w-[150px] h-[182px] max-md:h-[150px] object-cover"
+                />
+              ))}
+            </div>
+          </AnimateOnView>
+          <AnimateOnView direction="left" delay={0.6}>
+            <div className="flex space-x-16 animate-loop-scroll">
+              {skills.map((skill, index) => (
+                <img
+                  key={index}
+                  loading="lazy"
+                  src={skill.imageSrc}
+                  alt={skill.alt}
+                  className="max-w-none w-[182px] max-md:w-[150px] h-[182px] max-md:h-[150px] object-cover"
+                />
+              ))}
+            </div>
+          </AnimateOnView>
+          <AnimateOnView direction="left" delay={0.8}>
+            <div
+              className="flex space-x-16 animate-loop-scroll"
+              aria-hidden="true"
+            >
+              {skills.map((skill, index) => (
+                <img
+                  key={index}
+                  loading="lazy"
+                  src={skill.imageSrc}
+                  alt={skill.alt}
+                  className="max-w-none w-[182px] max-md:w-[150px] h-[182px] max-md:h-[150px] object-cover"
+                />
+              ))}
+            </div>
+          </AnimateOnView>
         </div>
       </section>
 
