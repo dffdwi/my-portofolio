@@ -69,52 +69,54 @@ const Header = () => {
           </svg>
         </button>
       </div>
-      {isMobileMenuOpen && (
-        <nav className="absolute top-16 left-0 w-full bg-stone-950 flex flex-col items-start gap-3 p-4 md:hidden">
-          <span
-            onClick={scrollToTop}
-            className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
-          >
-            Home
-          </span>
-          <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            onClick={toggleMobileMenu}
-            className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
-          >
-            About
-          </Link>
-          <Link
-            to="project"
-            smooth={true}
-            duration={500}
-            onClick={toggleMobileMenu}
-            className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
-          >
-            Project
-          </Link>
-          <Link
-            to="skills"
-            smooth={true}
-            duration={500}
-            onClick={toggleMobileMenu}
-            className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
-          >
-            Expertise
-          </Link>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            onClick={toggleMobileMenu}
-            className="cursor-pointer text-violet-500 rounded-md border-2 border-violet-500 border-solid p-2 transition duration-200 hover:bg-violet-500 hover:text-neutral-950"
-          >
-            Contact Me
-          </Link>
-        </nav>
-      )}
+      <nav
+        className={`absolute top-16 left-0 w-full bg-stone-950 flex flex-col items-center gap-3 p-4 md:hidden transition-all duration-500 ${
+          isMobileMenuOpen ? "opacity-90 max-h-screen" : "opacity-0 max-h-0"
+        } overflow-hidden`}
+      >
+        <span
+          onClick={scrollToTop}
+          className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
+        >
+          Home
+        </span>
+        <Link
+          to="about"
+          smooth={true}
+          duration={500}
+          onClick={toggleMobileMenu}
+          className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
+        >
+          About
+        </Link>
+        <Link
+          to="project"
+          smooth={true}
+          duration={500}
+          onClick={toggleMobileMenu}
+          className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
+        >
+          Project
+        </Link>
+        <Link
+          to="skills"
+          smooth={true}
+          duration={500}
+          onClick={toggleMobileMenu}
+          className="cursor-pointer text-white transition duration-200 hover:text-violet-500"
+        >
+          Expertise
+        </Link>
+        <Link
+          to="contact"
+          smooth={true}
+          duration={500}
+          onClick={toggleMobileMenu}
+          className="cursor-pointer text-violet-500 rounded-md border-2 border-violet-500 border-solid p-2 transition duration-200 hover:bg-violet-500 hover:text-neutral-950"
+        >
+          Contact Me
+        </Link>
+      </nav>
 
       <nav className="hidden md:flex gap-5 items-center text-xl">
         <span

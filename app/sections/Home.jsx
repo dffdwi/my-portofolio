@@ -85,7 +85,7 @@ function Home() {
       <section className="flex gap-5 justify-between mt-16 w-full max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
         <AnimateOnView direction="left" delay={0.4}>
           <a
-            href="../../daffa-dwi-haykal-cv.pdf"
+            href="../../cv/daffa-dwi-haykal-cv.pdf"
             download="Daffa_Dwi_Haykal_CV.pdf"
             className="flex gap-2.5 px-5 py-4 text-justify text-white bg-violet-500 rounded-md border border-transparent transition-all hover:bg-transparent hover:border hover:border-violet-500"
           >
