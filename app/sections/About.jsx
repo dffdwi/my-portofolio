@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useState, useEffect, useRef } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import AnimateOnView from "./AnimateOnView"; // Sesuaikan path impor ini sesuai dengan lokasi file AnimateOnView
+import AnimateOnView from "../Components/hooks/AnimateOnView";
 
 import basicUiUx from "../../public/animations/responsive.json";
 import frontEndDeveloper from "../../public/animations/coding.json";
@@ -94,7 +94,11 @@ function About() {
           <div className="mt-12 w-full max-w-4xl">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {offers.map((offer, index) => (
-                <AnimateOnView key={index} direction="up" delay={0.1 * (index + 1)}>
+                <AnimateOnView
+                  key={index}
+                  direction="up"
+                  delay={0.1 * (index + 1)}
+                >
                   <OfferCard
                     animationData={offer.animationData}
                     title={offer.title}
@@ -125,7 +129,9 @@ function About() {
               <div
                 key={i}
                 className={`h-2.5 rounded-full w-16 transition-all duration-500 ${
-                  i + 1 === currentPage ? "bg-violet-500 scale-110" : "bg-neutral-400 scale-100"
+                  i + 1 === currentPage
+                    ? "bg-violet-500 scale-110"
+                    : "bg-neutral-400 scale-100"
                 }`}
               ></div>
             ))}

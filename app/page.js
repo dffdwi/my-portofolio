@@ -1,11 +1,11 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-const Home = dynamic(() => import("./Components/Home"));
-const About = dynamic(() => import("./Components/About"));
-const Project = dynamic(() => import("./Components/Project"));
-const Skills = dynamic(() => import("./Components/Skills"));
-const Contact = dynamic(() => import("./Components/Contact"));
+const Home = dynamic(() => import("./sections/Home"));
+const About = dynamic(() => import("./sections/About"));
+const Project = dynamic(() => import("./sections/Project"));
+const Skills = dynamic(() => import("./sections/Skills"));
+const Contact = dynamic(() => import("./sections/Contact"));
 
 const Page = () => {
   return (

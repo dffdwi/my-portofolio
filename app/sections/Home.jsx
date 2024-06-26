@@ -1,5 +1,5 @@
 import * as React from "react";
-import AnimateOnView from "./AnimateOnView";
+import AnimateOnView from "../Components/hooks/AnimateOnView";
 
 const SocialIcon = ({ src, alt, link }) => (
   <a href={link} target="_blank" rel="noopener noreferrer">
@@ -16,22 +16,22 @@ const SocialIcons = () => (
   <div className="flex gap-5 px-5 my-auto text-white max-md:flex-wrap">
     <p className="grow my-auto">Find Me On</p>
     <SocialIcon
-      src="../../linkedin.svg"
+      src="../../social/linkedin.svg"
       alt="LinkedIn"
       link="https://www.linkedin.com/in/daffadwihaykal"
     />
     <SocialIcon
-      src="../../github.svg"
+      src="../../social/github.svg"
       alt="GitHub"
       link="https://github.com/dffdwi"
     />
     <SocialIcon
-      src="../../instagram.svg"
+      src="../../social/instagram.svg"
       alt="Instagram"
       link="https://www.instagram.com/daffadwi__"
     />
     <SocialIcon
-      src="../../whatsapp.svg"
+      src="../../social/whatsapp.svg"
       alt="WhatsApp"
       link="https://wa.me/6281324413572"
     />

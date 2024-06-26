@@ -44,7 +44,7 @@ const Header = () => {
       }`}
       style={{ zIndex: 10 }}
     >
-      <div className="text-2xl flex-shrink-0">
+      <div className="text-2xl flex-shrink-0 cursor-pointer" onClick={scrollToTop}>
         <span className="text-violet-500">Daffa</span>Dwi
       </div>
 
@@ -116,7 +116,6 @@ const Header = () => {
         </nav>
       )}
 
-      {/* Desktop Navigation */}
       <nav className="hidden md:flex gap-5 items-center text-xl">
         <span
           onClick={scrollToTop}

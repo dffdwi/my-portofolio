@@ -2,9 +2,9 @@
 
 import Swal from "sweetalert2";
 import React from "react";
-import InputField from "./InputField";
-import useInput from "./useInput";
-import AnimateOnView from "./AnimateOnView"; // Import the AnimateOnView component
+import InputField from "../Components/InputField";
+import useInput from "../Components/hooks/useInput";
+import AnimateOnView from "../Components/hooks/AnimateOnView";
 
 function Contact() {
   const [

@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import CustomModal from "./CustomModal";
+import CustomModal from "../Components/CustomModal";
 import Modal from "react-modal";
-import AnimateOnView from "./AnimateOnView"; // Sesuaikan path impor ini sesuai dengan lokasi file AnimateOnView
-
+import AnimateOnView from "../Components/hooks/AnimateOnView";
 export default function Project() {
   const [modalInfo, setModalInfo] = useState({
     show: false,
