@@ -39,7 +39,7 @@ const Header = () => {
     <header
       className={`flex justify-between items-center px-8 py-4 w-full font-semibold text-white transition-all duration-500 sticky top-0 z-10 ${
         isSticky && window.innerWidth >= 768
-          ? "shadow-md bg-stone-900 transform py-1"
+          ? "shadow-md bg-stone-900 transform py-1 opacity-95"
           : "bg-stone-950"
       }`}
       style={{ zIndex: 10 }}

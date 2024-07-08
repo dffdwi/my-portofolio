@@ -43,7 +43,7 @@ export default function Project() {
       imageSrc: "../../wirte.svg",
       title: "Simple Notes Apps",
       description: "An app for taking simple and quick notes.",
-      webLink: "https://example.com/simple-notes-apps",
+      webLink: "https://simple-notes-blush.vercel.app/",
       githubLink: "https://github.com/dffdwi/note-list",
     },
     {
