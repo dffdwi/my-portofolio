@@ -56,7 +56,7 @@ function About() {
     },
     {
       animationData: basicBackEndDeveloper,
-      title: "Basic Back-End Developer",
+      title: "Back-End Developer",
     },
   ];
 

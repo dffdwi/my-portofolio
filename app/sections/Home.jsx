@@ -60,13 +60,11 @@ function Home() {
               className="mt-5 border-solid aspect-[25] border-[3px] border-neutral-400 stroke-[3px] stroke-neutral-400 w-[74px]"
             />
             <p className="mt-8 text-justify max-md:max-w-full">
-              My name is Daffa Dwi Haykal, an Informatics student at Multimedia
-              Nusantara University, is deeply passionate about Web Development,
-              particularly as a Front-End Developer. Proficient in HTML, CSS,
-              JavaScript, and React.js, I am dedicated to crafting engaging and
-              user-friendly digital interfaces. My commitment to mastering these
-              technologies enables me to contribute effectively to the world of
-              web development.
+              Fresh graduate with end-to-end application development skills
+              using React, Next.js, Nest.js, and React Native. Experienced in
+              building responsive interfaces, scalable back-end services, and
+              managing databases with PostgreSQL. Eager to build impactful
+              solutions within a collaborative development team.
             </p>
           </div>
         </AnimateOnView>
